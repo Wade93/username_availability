@@ -1,0 +1,40 @@
+<!DOCTYPE html></div>
+<html>
+    <head>
+        <title>Login & Registration</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <body class="container">
+        <div class="row"><h1>Welcome, you've been logged in {{session['username']}}!</h1>
+            <a href="/logout">Logout</a>
+        </div>
+        <div class="row">
+            <h3 class="lead">Your search returned the following friends:</h3>
+        </div>
+        <div class="row">
+            <table class="col-8 table table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>First</th>
+                        <th>Last</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for user in users %}
+                    <tr>
+                        <td>{{user['first_name']}}</td>
+                        <td>{{user['last_name']}}</td>
+                        <td>{{user['username']}}</td>
+                        <td>{{user['email']}}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    </body>
+</html>
